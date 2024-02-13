@@ -13,20 +13,24 @@ public class PuntoVehiculos {
         int opc = 0;
 
         do {
-            opc = Integer.parseInt(JOptionPane.showInputDialog("MENU PRINCIPAL\n\n"
+            opc = Integer.parseInt(JOptionPane.showInputDialog(null,"MENU PRINCIPAL\n\n"
                     + "1. Ver lista de autos\n"
+                    
                     + "2. Autos mas baratos de cada año\n"
                     + "3. Promedio\n\n"
-                    + "4. Salir"));
+                    
+                    + "4. Salir", "Menu Principal", 1));
 
             switch (opc) {
                 case 1:
                     precio.leerPrecio();
                     break;
                 case 2:
-                    precio.precioMenor();
+                    precio.minimosPorColumna();
                     break;
-
+                case 3:
+                    precio.promedioPorAño();
+                    break;
             }
 
         } while (opc != 4);
