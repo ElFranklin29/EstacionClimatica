@@ -35,12 +35,15 @@ public class Vehiculo {
 
     public void ingresarVehiculos() {
 
-        setCantidad(Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de vehiculos que quiere ingresar")));
+       
+        
+        setCantidad(Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantos vehiculos desea ingresar?", 
+                "Cantidad De Vehiculos",1)));
         
         
         this.vehiculos = new String[getCantidad()];
         for (int i = 0; i < getCantidad(); i++) {
-            vehiculos[i] = JOptionPane.showInputDialog("Ingrese el nombre del vehiculo " + (i + 1));
+            vehiculos[i] = JOptionPane.showInputDialog(null,"Ingrese el nombre del vehiculo " + (i + 1), "Nombre Del Vehiculo", 1);
             
             setVehiculos(vehiculos);
         }
@@ -52,13 +55,6 @@ public class Vehiculo {
 
     }
 
-    public void leerVehiculos() {
-
-        for (int i = 0; i < vehiculos.length; i++) {
-
-            System.out.println(vehiculos[i]);
-
-        }
-    }
+   
 
 }
