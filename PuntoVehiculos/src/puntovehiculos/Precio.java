@@ -37,7 +37,7 @@ public class Precio {
     }
 
     public void asignarPrecio(String[] vehiculos, Precio precio) {
-        int valor = 1;
+
         this.precios = new int[getCantidad()][años.length];
         años[0] = 2019;
         años[1] = 2020;
@@ -50,10 +50,16 @@ public class Precio {
 
         for (int i = 0; i < vehiculos.length; i++) {
             for (int j = 0; j < años.length; j++) {
+                while (precios[i][j] <= 0) {
 
-                valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el precio del vehiculo "
-                        + "" + vehiculos[i] + " para el año " + años[j], "Ingresar precio", 1));
-                precios[i][j] = valor;
+                    if (precios[i][j] < 0) {
+                        JOptionPane.showMessageDialog(null, "Ingresar solo valores positivos, vuelva a ingresar el precio",
+                                "ERROR", 0);
+                    }
+                    precios[i][j] = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el precio del vehiculo "
+                            + "" + vehiculos[i] + " para el año " + años[j], "Ingresar precio", 1));
+
+                }
 
             }
 
@@ -122,7 +128,7 @@ public class Precio {
 
         for (int i = 0; i < getCantidad(); i++) {
             for (int j = 0; j < años.length; j++) {
-                if (precios[i][añoSeleccionado] >= 30 && precios[i][añoSeleccionado] <= 50) {
+                if (precios[i][añoSeleccionado] >= 30000000 && precios[i][añoSeleccionado] <= 50000000) {
                     arrayPromedio[i] = precios[i][añoSeleccionado];
 
                 }
